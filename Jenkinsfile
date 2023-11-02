@@ -31,7 +31,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                       curl http://http://172.17.0.1:80 | grep -q "hello world!"
+                       curl http://http://localhost | grep -q "hello world!"
                     '''
                 }
             }
