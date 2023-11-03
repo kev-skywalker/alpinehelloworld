@@ -20,6 +20,8 @@ pipeline {
             steps {
                 script {
                     sh '''
+                        echo "Clean Environment"
+                        docker rm -vf $IMAGE_NAME || echo "container doesn't exist"
                         docker run --name $IMAGE_NAME -d -p 80:5000 -e PORT=5000 kevskywalker94/$IMAGE_NAME:$IMAGE_TAG
                         sleep 5
                     '''
